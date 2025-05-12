@@ -36,6 +36,8 @@ Don't forget to replace the path to the executable.
 
 </details>
 
+---
+
 <details>
 <summary>Claude Desktop</summary>
 
@@ -60,6 +62,8 @@ Don't forget to replace the path to the executable.
 [Read more](https://modelcontextprotocol.io/quickstart/user)
 
 </details>
+
+---
 
 <details>
 <summary>VS Code</summary>
@@ -89,8 +93,9 @@ Don't forget to replace the path to the executable.
 
 ## Usage
 
-Just ask LLM to run a shortcut, show a list of added shortcuts or view a shortcut in Shortcuts app. If your MCP client supports Prompts and Resources you may check it:
+Just ask LLM to run a shortcut, show a list of added shortcuts or view a shortcut in Shortcuts app. 
 
+If your MCP client supports Prompts and Resources you may check it as well:
 ![Prompts and resources](.github/prompts-and-resources.png)
 
 ## Tools
