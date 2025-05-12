@@ -1,5 +1,8 @@
 # shortcuts-mcp-server
 
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fartemnovichkov%2Fshortcuts-mcp-server%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/artemnovichkov/shortcuts-mcp-server)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fartemnovichkov%2Fshortcuts-mcp-server%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/artemnovichkov/shortcuts-mcp-server)
+
 A Model Context Protocol (MCP) server that provides access to Apple Shortcuts functionality. This server allows AI assistants to list, view, and run your shortcuts through the MCP interface.
 
 Compatible with Cursor, Claude Desktop, and other MCP-enabled applications.
