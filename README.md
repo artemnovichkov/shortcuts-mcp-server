@@ -4,6 +4,8 @@ A Model Context Protocol (MCP) server that provides access to Apple Shortcuts fu
 
 Compatible with Cursor, Claude Desktop, and other MCP-enabled applications.
 
+![Shortcuts MCP Server Preview](.github/preview.gif)
+
 ## Installation
 
 ```bash
