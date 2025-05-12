@@ -1,5 +1,9 @@
 # shortcuts-mcp-server
 
+A Model Context Protocol (MCP) server that provides access to Apple Shortcuts functionality. This server allows AI assistants to list, view, and run your shortcuts through the MCP interface.
+
+Compatible with Cursor, Claude Desktop, and other MCP-enabled applications.
+
 ## Installation
 
 ```bash
@@ -7,8 +11,6 @@ git clone https://github.com/artemnovichkov/shortcuts-mcp-server
 cd shortcuts-mcp-server
 swift build
 ```
-
-## MCP Client Configuration
 
 <details>
 <summary>Cursor</summary>
@@ -62,7 +64,7 @@ Don't forget to replace the path to the executable.
 
 For quick install:
 
-[![Install with Docker in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=github&inputs=%5B%7B%22id%22%3A%22github_token%22%2C%22type%22%3A%22promptString%22%2C%22description%22%3A%22GitHub%20Personal%20Access%20Token%22%2C%22password%22%3Atrue%7D%5D&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22--rm%22%2C%22-e%22%2C%22GITHUB_PERSONAL_ACCESS_TOKEN%22%2C%22ghcr.io%2Fgithub%2Fgithub-mcp-server%22%5D%2C%22env%22%3A%7B%22GITHUB_PERSONAL_ACCESS_TOKEN%22%3A%22%24%7Binput%3Agithub_token%7D%22%7D%7D)
+[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=shortcuts&config=%7B%22command%22%3A%22%2Fabsolute%2Fpath%2Fto%2Fshortcuts-mcp-server%2F.build%2Farm64-apple-macosx%2Fdebug%2Fshortcuts-mcp-server%22%2C%22type%22%3A%22stdio%22%7D)
 
 For manual installation, add the following JSON block to your User Settings (JSON) file in VS Code. You can do this by pressing `Ctrl + Shift + P` and typing `Preferences: Open User Settings (JSON)`.
 
@@ -85,23 +87,24 @@ Don't forget to replace the path to the executable.
 
 ## Tools
 
-- **run** - Run a shortcut
-    - `name` - Name of the shortcut to run (string, required)
-- **list** - List all shortcuts
-    - `show-identifiers` - Show identifiers (boolean, optional)
-- **view** - View a shortcut
+- **run** - Run a shortcut.
+    - `name` - The name of the shortcut to run (string, required)
+- **list** - List your shortcuts.
+    - `show-identifiers` - Whether to show the identifiers of the shortcuts. (boolean, optional)
+- **view** - View a shortcut in Shortcuts app.
     - `name` - Name of the shortcut to view (string, required)
     
 ## Resources
 
-- **list** - List all shortcuts
+- **list** - List your shortcuts.
 
 ## Prompts
 
-- **run** - Run a shortcut
+- **run** - Run a shortcut.
     - `name` - Name of the shortcut to run (string, required)
-- **list** - List all shortcuts
-- **view** - View a shortcut
+- **list** - List your shortcuts.
+    - `show-identifiers` - Whether to show the identifiers of the shortcuts. (boolean, optional)
+- **view** - View a shortcut in Shortcuts app.
     - `name` - Name of the shortcut to view (string, required)
 
 ## References
