@@ -45,6 +45,24 @@ let server = Server(
 let transport = StdioTransport()
 try await server.start(transport: transport)
 
+// MARK: - Resources
+
+let shortcutsURI = "shortcuts://list"
+
+await server.withMethodHandler(ListResources.self) { params in
+    ListResources.Result(resources: [.init(name: "Shortcuts", uri: shortcutsURI, mimeType: "text/plain")])
+}
+
+await server.withMethodHandler(ReadResource.self) { params in
+    guard params.uri == shortcutsURI else {
+        throw MCPError.invalidParams("Invalid uri: \(params.uri)")
+    }
+    let result = try await run(.name("shortcuts"), arguments: ["list"])
+    return ReadResource.Result(contents: [.text(result.standardOutput ?? "", uri: params.uri)])
+}
+
+// MARK: - Tools
+
 await server.withMethodHandler(ListTools.self) { params in
     ListTools.Result(tools: tools)
 }
@@ -83,5 +101,7 @@ func call(tool: Tool, params: CallTool.Parameters) async throws -> String {
     let result = try await run(executable, arguments: arguments)
     return result.standardOutput ?? ""
 }
+
+// MARK: - Run
 
 await server.waitUntilCompleted()
