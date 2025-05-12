@@ -87,6 +87,12 @@ Don't forget to replace the path to the executable.
 
 </details>
 
+## Usage
+
+Just ask LLM to run a shortcut, show a list of added shortcuts or view a shortcut in Shortcuts app. If your MCP client supports Prompts and Resources you may check it:
+
+![Prompts and resources](.github/prompts-and-resources.png)
+
 ## Tools
 
 - **run** - Run a shortcut.
