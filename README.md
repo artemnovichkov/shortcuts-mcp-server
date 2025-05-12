@@ -10,15 +10,10 @@ swift build
 
 ## MCP Client Configuration
 
-### Cursor
+<details>
+<summary>Cursor</summary>
 
-To add the server in Cursor:
-
-1. Open Cursor and go to **Settings** > **MCP Servers**.
-2. Use the UI to add a new server, or (if supported) edit the config file directly.
-   - **Global config**: `~/Library/Application Support/Cursor/mcp.json` (macOS)
-   - **Project config**: `.cursor/mcp.json` in your project folder
-3. Example config:
+For project cofiguration, update `.cursor/mcp.json` file in your project directory. To use across all projects, create a `~/.cursor/mcp.json` file in your home directory.
 
 ```json
 {
@@ -31,15 +26,17 @@ To add the server in Cursor:
 }
 ```
 
-> **Tip:** You can manage servers via the MCP settings page in Cursor, or by editing the config file directly for advanced use cases.
+Don't forget to replace the path to the executable.
+
+[Read more](https://docs.cursor.com/context/model-context-protocol)
+
+</details>
 
 <details>
 <summary>Claude Desktop</summary>
 
-To add the server in Claude Desktop:
-
-1. Open (or create) the config file at `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS).
-2. Add or update the `mcpServers` section:
+1. Open Settings -> Developer -> Edit Config
+2. Open the config file at `~/Library/Application Support/Claude/claude_desktop_config.json` and update:
 
 ```json
 {
@@ -52,18 +49,22 @@ To add the server in Claude Desktop:
 }
 ```
 
-> **Note:** Restart Claude Desktop after editing the config.
+Don't forget to replace the path to the executable.
+
+3. Restart Claude Desktop.
+
+[Read more](https://modelcontextprotocol.io/quickstart/user)
 
 </details>
 
 <details>
 <summary>VS Code</summary>
 
-You can add the MCP server in two ways:
+For quick install:
 
-#### 1. Workspace (Project) Settings
+[![Install with Docker in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=github&inputs=%5B%7B%22id%22%3A%22github_token%22%2C%22type%22%3A%22promptString%22%2C%22description%22%3A%22GitHub%20Personal%20Access%20Token%22%2C%22password%22%3Atrue%7D%5D&config=%7B%22command%22%3A%22docker%22%2C%22args%22%3A%5B%22run%22%2C%22-i%22%2C%22--rm%22%2C%22-e%22%2C%22GITHUB_PERSONAL_ACCESS_TOKEN%22%2C%22ghcr.io%2Fgithub%2Fgithub-mcp-server%22%5D%2C%22env%22%3A%7B%22GITHUB_PERSONAL_ACCESS_TOKEN%22%3A%22%24%7Binput%3Agithub_token%7D%22%7D%7D)
 
-- Create or edit `.vscode/mcp.json` in your project folder:
+For manual installation, add the following JSON block to your User Settings (JSON) file in VS Code. You can do this by pressing `Ctrl + Shift + P` and typing `Preferences: Open User Settings (JSON)`.
 
 ```json
 {
@@ -76,22 +77,9 @@ You can add the MCP server in two ways:
 }
 ```
 
-#### 2. User (Global) Settings
+Don't forget to replace the path to the executable.
 
-- Open your global `settings.json` (via Command Palette: Preferences: Open Settings (JSON)) and add:
-
-```json
-"mcp": {
-  "servers": {
-    "shortcuts-mcp-server": {
-      "type": "stdio",
-      "command": "/absolute/path/to/shortcuts-mcp-server/.build/arm64-apple-macosx/debug/shortcuts-mcp-server"
-    }
-  }
-}
-```
-
-> **Tip:** You can also use the Command Palette (`MCP: Add Server`) to add servers interactively.
+[Read more](https://code.visualstudio.com/docs/copilot/chat/mcp-servers)
 
 </details>
 
