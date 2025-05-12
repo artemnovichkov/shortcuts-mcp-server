@@ -64,7 +64,7 @@ Don't forget to replace the path to the executable.
 
 For quick install:
 
-[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=shortcuts&config=%7B%22command%22%3A%22%2Fabsolute%2Fpath%2Fto%2Fshortcuts-mcp-server%2F.build%2Farm64-apple-macosx%2Fdebug%2Fshortcuts-mcp-server%22%2C%22type%22%3A%22stdio%22%7D)
+[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=shortcuts-mcp-server&config=%7B%22command%22%3A%22%2Fabsolute%2Fpath%2Fto%2Fshortcuts-mcp-server%2F.build%2Farm64-apple-macosx%2Fdebug%2Fshortcuts-mcp-server%22%2C%22type%22%3A%22stdio%22%7D)
 
 For manual installation, add the following JSON block to your User Settings (JSON) file in VS Code. You can do this by pressing `Ctrl + Shift + P` and typing `Preferences: Open User Settings (JSON)`.
 
