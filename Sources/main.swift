@@ -44,7 +44,7 @@ let tools = [runTool, listTool, viewTool]
 
 let server = Server(
     name: "Shortcuts MCP Server",
-    version: "1.0.0",
+    version: "1.0.1",
     capabilities: .init(tools: .init(listChanged: false))
 )
 
@@ -91,7 +91,7 @@ func call(tool: Tool, params: CallTool.Parameters) async throws -> String {
     switch tool.name {
     case "run":
         let name = try getParam(name: "name", params: params)
-        arguments = ["run", name]
+        arguments = ["run", name, "|", "cat"]
     case "list":
         let showIdentifiers = params.arguments?["show-identifiers"]?.boolValue ?? false
         if showIdentifiers {
