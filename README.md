@@ -45,7 +45,7 @@ Don't forget to replace the path to the executable.
 <summary>Claude Desktop</summary>
 
 1. Open Settings -> Developer -> Edit Config
-2. Open the config file at `~/Library/Application Support/Claude/claude_desktop_config.json` and update:
+2. Open the config file at `~/Library/Application Support/Claude/claude_desktop_config.json` and update to:
 
 ```json
 {
@@ -91,6 +91,28 @@ For manual installation, add the following JSON block to your User Settings (JSO
 Don't forget to replace the path to the executable.
 
 [Read more](https://code.visualstudio.com/docs/copilot/chat/mcp-servers)
+
+</details>
+
+---
+
+<details>
+<summary>Github Copilot for Xcode (pre-release)</summary>
+  
+Open Settings -> MCP -> Edit Config and update to:
+
+```json
+{
+  "servers": {
+    "shortcuts-mcp-server": {
+      "type": "stdio",
+      "command": "/absolute/path/to/shortcuts-mcp-server/.build/arm64-apple-macosx/debug/shortcuts-mcp-server"
+    }
+  }
+}
+```
+
+Don't forget to replace the path to the executable.
 
 </details>
 
