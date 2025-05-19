@@ -17,11 +17,13 @@ Compatible with Cursor, Claude Desktop, and other MCP-enabled applications.
 - Xcode 16.x or later
 - mise
 
-### One-line setup with mise
+### Setup with mise
 
 To install mise:
 ```bash
 brew install mise
+# spm backend is experimental
+mise settings experimental=true
 ```
 
 For more information about mise, visit the [official documentation](https://mise.jdx.dev/).
@@ -121,7 +123,7 @@ Don't forget to replace the path to the executable.
 ---
 
 <details>
-<summary>Github Copilot for Xcode (pre-release)</summary>
+<summary>Github Copilot for Xcode</summary>
   
 Open Settings -> MCP -> Edit Config and update to:
 
@@ -129,8 +131,13 @@ Open Settings -> MCP -> Edit Config and update to:
 {
   "servers": {
     "shortcuts-mcp-server": {
-      "type": "stdio",
-      "command": "/absolute/path/to/shortcuts-mcp-server/.build/arm64-apple-macosx/debug/shortcuts-mcp-server"
+      "command": "mise",
+      "args": [
+        "x",
+        "spm:artemnovichkov/shortcuts-mcp-server@latest",
+        "--",
+        "shortcuts-mcp-server"
+      ]
     }
   }
 }
