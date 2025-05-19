@@ -10,6 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: jdx/mise-action@v2
+      - name: Enable mise experimental features
+        run: mise settings experimental=true
       - name: Build release binary
         run: swift build -c release
       - name: Prepare binary
