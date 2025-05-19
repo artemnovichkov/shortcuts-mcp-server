@@ -22,8 +22,6 @@ Compatible with Cursor, Claude Desktop, and other MCP-enabled applications.
 To install mise:
 ```bash
 brew install mise
-# spm backend is experimental
-mise settings experimental=true
 ```
 
 For more information about mise, visit the [official documentation](https://mise.jdx.dev/).
@@ -37,12 +35,12 @@ For project cofiguration, update `.cursor/mcp.json` file in your project directo
 
 ```json
 {
-  "servers": {
+  "mcpServers": {
     "shortcuts-mcp-server": {
       "command": "mise",
       "args": [
         "x",
-        "spm:artemnovichkov/shortcuts-mcp-server@latest",
+        "ubi:artemnovichkov/shortcuts-mcp-server@latest",
         "--",
         "shortcuts-mcp-server"
       ]
@@ -72,7 +70,7 @@ Don't forget to replace the path to the executable.
       "command": "mise",
       "args": [
         "x",
-        "spm:artemnovichkov/shortcuts-mcp-server@latest",
+        "ubi:artemnovichkov/shortcuts-mcp-server@latest",
         "--",
         "shortcuts-mcp-server"
       ]
@@ -99,18 +97,18 @@ Don't forget to replace the path to the executable.
 For manual installation, add the following JSON block to your User Settings (JSON) file in VS Code. You can do this by pressing `Ctrl + Shift + P` and typing `Preferences: Open User Settings (JSON)`.
 
 ```json
-{
-  "servers": {
-    "shortcuts-mcp-server": {
-      "command": "mise",
-      "args": [
-        "x",
-        "spm:artemnovichkov/shortcuts-mcp-server@latest",
-        "--",
-        "shortcuts-mcp-server"
-      ]
+"mcp": {
+    "servers": {
+        "shortcuts-mcp-server": {
+            "command": "mise",
+                "args": [
+                    "x",
+                    "ubi:artemnovichkov/shortcuts-mcp-server@latest",
+                    "--",
+                    "shortcuts-mcp-server"
+                ]
+        }
     }
-  }
 }
 ```
 
@@ -129,17 +127,17 @@ Open Settings -> MCP -> Edit Config and update to:
 
 ```json
 {
-  "servers": {
-    "shortcuts-mcp-server": {
-      "command": "mise",
-      "args": [
-        "x",
-        "spm:artemnovichkov/shortcuts-mcp-server@latest",
-        "--",
-        "shortcuts-mcp-server"
-      ]
+    "servers": {
+        "shortcuts-mcp-server": {
+            "command": "mise",
+            "args": [
+                "x",
+                "ubi:artemnovichkov/shortcuts-mcp-server@latest",
+                "--",
+                "shortcuts-mcp-server"
+            ]
+        }
     }
-  }
 }
 ```
 
