@@ -9,13 +9,24 @@ Compatible with Cursor, Claude Desktop, and other MCP-enabled applications.
 
 ![Shortcuts MCP Server Preview](.github/preview.gif)
 
-## Installation
+## Getting started
 
+### Prerequisites
+
+- macOS 14.5 or later
+- Xcode 16.x or later
+- mise
+
+### One-line setup with mise
+
+To install mise:
 ```bash
-git clone https://github.com/artemnovichkov/shortcuts-mcp-server
-cd shortcuts-mcp-server
-swift build
+brew install mise
 ```
+
+For more information about mise, visit the [official documentation](https://mise.jdx.dev/).
+
+### Adding to MCP clients
 
 <details>
 <summary>Cursor</summary>
@@ -26,8 +37,13 @@ For project cofiguration, update `.cursor/mcp.json` file in your project directo
 {
   "servers": {
     "shortcuts-mcp-server": {
-      "type": "stdio",
-      "command": "/absolute/path/to/shortcuts-mcp-server/.build/arm64-apple-macosx/debug/shortcuts-mcp-server"
+      "command": "mise",
+      "args": [
+        "x",
+        "spm:artemnovichkov/shortcuts-mcp-server@latest",
+        "--",
+        "shortcuts-mcp-server"
+      ]
     }
   }
 }
@@ -51,8 +67,13 @@ Don't forget to replace the path to the executable.
 {
   "mcpServers": {
     "shortcuts-mcp-server": {
-      "type": "stdio",
-      "command": "/absolute/path/to/shortcuts-mcp-server/.build/arm64-apple-macosx/debug/shortcuts-mcp-server"
+      "command": "mise",
+      "args": [
+        "x",
+        "spm:artemnovichkov/shortcuts-mcp-server@latest",
+        "--",
+        "shortcuts-mcp-server"
+      ]
     }
   }
 }
@@ -71,9 +92,7 @@ Don't forget to replace the path to the executable.
 <details>
 <summary>VS Code</summary>
 
-For quick install:
-
-[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=shortcuts-mcp-server&config=%7B%22command%22%3A%22%2Fabsolute%2Fpath%2Fto%2Fshortcuts-mcp-server%2F.build%2Farm64-apple-macosx%2Fdebug%2Fshortcuts-mcp-server%22%2C%22type%22%3A%22stdio%22%7D)
+[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=shortcuts-mcp-server&config=%7B%22command%22%3A%22mise%22%2C%22args%22%3A%5B%22x%22%2C%22spm%3Aartemnovichkov%2Fshortcuts-mcp-server%40latest%22%2C%22--%22%2C%22shortcuts-mcp-server%22%5D%7D)
 
 For manual installation, add the following JSON block to your User Settings (JSON) file in VS Code. You can do this by pressing `Ctrl + Shift + P` and typing `Preferences: Open User Settings (JSON)`.
 
@@ -81,8 +100,13 @@ For manual installation, add the following JSON block to your User Settings (JSO
 {
   "servers": {
     "shortcuts-mcp-server": {
-      "type": "stdio",
-      "command": "/absolute/path/to/shortcuts-mcp-server/.build/arm64-apple-macosx/debug/shortcuts-mcp-server"
+      "command": "mise",
+      "args": [
+        "x",
+        "spm:artemnovichkov/shortcuts-mcp-server@latest",
+        "--",
+        "shortcuts-mcp-server"
+      ]
     }
   }
 }
