@@ -26,124 +26,31 @@ brew install mise
 
 For more information about mise, visit the [official documentation](https://mise.jdx.dev/).
 
-### Adding to MCP clients
+### Quick install
 
-<details>
-<summary>Cursor</summary>
-
-For project cofiguration, update `.cursor/mcp.json` file in your project directory. To use across all projects, create a `~/.cursor/mcp.json` file in your home directory.
-
-```json
-{
-  "mcpServers": {
-    "shortcuts-mcp-server": {
-      "command": "mise",
-      "args": [
-        "x",
-        "ubi:artemnovichkov/shortcuts-mcp-server@latest",
-        "--",
-        "shortcuts-mcp-server"
-      ]
-    }
-  }
-}
-```
-
-Don't forget to replace the path to the executable.
-
-[Read more](https://docs.cursor.com/context/model-context-protocol)
-
-</details>
-
----
-
-<details>
-<summary>Claude Desktop</summary>
-
-1. Open Settings -> Developer -> Edit Config
-2. Open the config file at `~/Library/Application Support/Claude/claude_desktop_config.json` and update to:
-
-```json
-{
-  "mcpServers": {
-    "shortcuts-mcp-server": {
-      "command": "mise",
-      "args": [
-        "x",
-        "ubi:artemnovichkov/shortcuts-mcp-server@latest",
-        "--",
-        "shortcuts-mcp-server"
-      ]
-    }
-  }
-}
-```
-
-Don't forget to replace the path to the executable.
-
-3. Restart Claude Desktop.
-
-[Read more](https://modelcontextprotocol.io/quickstart/user)
-
-</details>
-
----
-
-<details>
-<summary>VS Code</summary>
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=shortcuts-mcp-server&config=eyJjb21tYW5kIjoibWlzZSB4IHViaTphcnRlbW5vdmljaGtvdi9zaG9ydGN1dHMtbWNwLXNlcnZlckBsYXRlc3QgLS0gc2hvcnRjdXRzLW1jcC1zZXJ2ZXIifQ%3D%3D)
 
 [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=shortcuts-mcp-server&config=%7B%22command%22%3A%22mise%22%2C%22args%22%3A%5B%22x%22%2C%22ubi%3Aartemnovichkov%2Fshortcuts-mcp-server%40latest%22%2C%22--%22%2C%22shortcuts-mcp-server%22%5D%7D)
 
-For manual installation, add the following JSON block to your User Settings (JSON) file in VS Code. You can do this by pressing `Ctrl + Shift + P` and typing `Preferences: Open User Settings (JSON)`.
+### Manual installation
 
-```json
-"mcp": {
-    "servers": {
-        "shortcuts-mcp-server": {
-            "command": "mise",
-                "args": [
-                    "x",
-                    "ubi:artemnovichkov/shortcuts-mcp-server@latest",
-                    "--",
-                    "shortcuts-mcp-server"
-                ]
-        }
-    }
-}
-```
-
-Don't forget to replace the path to the executable.
-
-[Read more](https://code.visualstudio.com/docs/copilot/chat/mcp-servers)
-
-</details>
-
----
-
-<details>
-<summary>Github Copilot for Xcode</summary>
-  
-Open Settings -> MCP -> Edit Config and update to:
+Update your MCP configuration with the following server:
 
 ```json
 {
-    "servers": {
-        "shortcuts-mcp-server": {
-            "command": "mise",
-            "args": [
-                "x",
-                "ubi:artemnovichkov/shortcuts-mcp-server@latest",
-                "--",
-                "shortcuts-mcp-server"
-            ]
-        }
+  "mcpServers": {
+    "shortcuts-mcp-server": {
+      "command": "mise",
+      "args": [
+        "x",
+        "ubi:artemnovichkov/shortcuts-mcp-server@latest",
+        "--",
+        "shortcuts-mcp-server"
+      ]
     }
+  }
 }
 ```
-
-Don't forget to replace the path to the executable.
-
-</details>
 
 ## Usage
 
