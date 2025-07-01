@@ -44,8 +44,10 @@ let tools = [runTool, listTool, viewTool]
 
 let server = Server(
     name: "Shortcuts MCP Server",
-    version: "1.0.1",
-    capabilities: .init(tools: .init(listChanged: false))
+    version: "1.0.3",
+    capabilities: .init(prompts: .init(listChanged: false),
+                        resources: .init(listChanged: false),
+                        tools: .init(listChanged: false))
 )
 
 let transport = StdioTransport()
@@ -168,7 +170,7 @@ await server.withMethodHandler(GetPrompt.self) { params in
     case .run:
         try runPrompt.result(for: params) { params in
             let name = try getParam(name: "name", params: params)
-            return [.init(role: .user, content: .text(text: "Run \(name) shortcut"))]
+            return [.user(.text(text: "Run \(name) shortcut"))]
         }
     case .list:
         listPrompt.result(for: params) { params in
@@ -176,12 +178,12 @@ await server.withMethodHandler(GetPrompt.self) { params in
             if params.arguments?["show-identifiers"]?.boolValue == true {
                 text += ", show identifiers"
             }
-            return [.init(role: .user, content: .text(text: text))]
+            return [.user(.text(text: text))]
         }
     case .view:
         try viewPrompt.result(for: params) { params in
             let name = try getParam(name: "name", params: params)
-            return [.init(role: .user, content: .text(text: "View \(name) shortcut"))]
+            return [.user(.text(text: "View \(name) shortcut"))]
         }
 
     }
