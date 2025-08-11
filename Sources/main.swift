@@ -65,7 +65,7 @@ await server.withMethodHandler(ReadResource.self) { params in
     guard params.uri == shortcutsURI else {
         throw MCPError.invalidParams("Invalid uri: \(params.uri)")
     }
-    let result = try await run(.name("shortcuts"), arguments: ["list"])
+    let result = try await run(.name("shortcuts"), arguments: ["list"], output: .string(limit: .max))
     return ReadResource.Result(contents: [.text(result.standardOutput ?? "", uri: params.uri)])
 }
 
@@ -107,7 +107,7 @@ func call(tool: Tool, params: CallTool.Parameters) async throws -> String {
     default:
         throw MCPError.invalidParams("Unknown tool name: \(tool.name)")
     }
-    let result = try await run(executable, arguments: arguments)
+    let result = try await run(executable, arguments: arguments, output: .string(limit: .max))
     return result.standardOutput ?? ""
 }
 
