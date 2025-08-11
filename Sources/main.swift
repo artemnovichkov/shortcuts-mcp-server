@@ -44,7 +44,7 @@ let tools = [runTool, listTool, viewTool]
 
 let server = Server(
     name: "Shortcuts MCP Server",
-    version: "1.0.3",
+    version: "1.0.4",
     capabilities: .init(prompts: .init(listChanged: false),
                         resources: .init(listChanged: false),
                         tools: .init(listChanged: false))
