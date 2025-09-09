@@ -12,8 +12,8 @@ let package = Package(
         .executable(name: "shortcuts-mcp-server", targets: ["ShortcutsMCPServer"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/modelcontextprotocol/swift-sdk", from: "0.9.0"),
-        .package(url: "https://github.com/swiftlang/swift-subprocess.git", branch: "main")
+        .package(url: "https://github.com/modelcontextprotocol/swift-sdk", from: "0.10.1"),
+        .package(url: "https://github.com/swiftlang/swift-subprocess", from: "0.1.0")
     ],
     targets: [
         .executableTarget(name: "ShortcutsMCPServer", dependencies: [
