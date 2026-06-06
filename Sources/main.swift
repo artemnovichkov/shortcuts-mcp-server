@@ -44,7 +44,7 @@ let tools = [runTool, listTool, viewTool]
 
 let server = Server(
     name: "Shortcuts MCP Server",
-    version: "1.0.5",
+    version: "1.0.7",
     capabilities: .init(prompts: .init(listChanged: false),
                         resources: .init(listChanged: false),
                         tools: .init(listChanged: false))
@@ -81,9 +81,9 @@ await server.withMethodHandler(CallTool.self) { params in
     }
     do {
         let result = try await call(tool: tool, params: params)
-        return CallTool.Result(content: [.text(result)], isError: false)
+        return CallTool.Result(content: [.text(text: result, annotations: nil, _meta: nil)], isError: false)
     } catch {
-        return CallTool.Result(content: [.text(error.localizedDescription)], isError: true)
+        return CallTool.Result(content: [.text(text: error.localizedDescription, annotations: nil, _meta: nil)], isError: true)
     }
 }
 
@@ -95,7 +95,7 @@ func call(tool: Tool, params: CallTool.Parameters) async throws -> String {
         let name = try getParam(name: "name", params: params)
         arguments = ["run", name]
     case "list":
-        let showIdentifiers = params.arguments?["show-identifiers"]?.boolValue ?? false
+        let showIdentifiers = params.arguments?["show-identifiers"] == "true"
         if showIdentifiers {
             arguments = ["list", "--show-identifiers"]
         } else {
@@ -175,7 +175,7 @@ await server.withMethodHandler(GetPrompt.self) { params in
     case .list:
         listPrompt.result(for: params) { params in
             var text = "List shortcuts"
-            if params.arguments?["show-identifiers"]?.boolValue == true {
+            if params.arguments?["show-identifiers"] == "true" {
                 text += ", show identifiers"
             }
             return [.user(.text(text: text))]
@@ -190,7 +190,7 @@ await server.withMethodHandler(GetPrompt.self) { params in
 }
 
 func getParam(name: String, params: GetPrompt.Parameters) throws -> String {
-    guard let value = params.arguments?[name]?.stringValue else {
+    guard let value = params.arguments?[name] else {
         throw MCPError.invalidParams("Missing parameter: \(name)")
     }
     return value
