@@ -14,7 +14,7 @@ Compatible with Cursor, Claude Desktop, and other MCP-enabled applications.
 ### Prerequisites
 
 - macOS 14.5 or later
-- Xcode 16.x or later
+- Xcode 26.0 or later (Swift 6.2)
 - mise
 
 ### Setup with mise
