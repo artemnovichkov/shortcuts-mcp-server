@@ -44,7 +44,7 @@ let tools = [runTool, listTool, viewTool]
 
 let server = Server(
     name: "Shortcuts MCP Server",
-    version: "1.0.7",
+    version: "1.0.8",
     capabilities: .init(prompts: .init(listChanged: false),
                         resources: .init(listChanged: false),
                         tools: .init(listChanged: false))
@@ -66,7 +66,7 @@ await server.withMethodHandler(ReadResource.self) { params in
         throw MCPError.invalidParams("Invalid uri: \(params.uri)")
     }
     let result = try await run(.name("shortcuts"), arguments: ["list"], output: .string(limit: .max))
-    return ReadResource.Result(contents: [.text(result.standardOutput ?? "", uri: params.uri)])
+    return ReadResource.Result(contents: [.text(result.standardOutput, uri: params.uri)])
 }
 
 // MARK: - Tools
@@ -95,7 +95,9 @@ func call(tool: Tool, params: CallTool.Parameters) async throws -> String {
         let name = try getParam(name: "name", params: params)
         arguments = ["run", name]
     case "list":
-        let showIdentifiers = params.arguments?["show-identifiers"] == "true"
+        let argument = params.arguments?["show-identifiers"]
+        // Some clients send the flag as a string instead of a boolean.
+        let showIdentifiers = argument?.boolValue ?? (argument?.stringValue == "true")
         if showIdentifiers {
             arguments = ["list", "--show-identifiers"]
         } else {
@@ -108,7 +110,7 @@ func call(tool: Tool, params: CallTool.Parameters) async throws -> String {
         throw MCPError.invalidParams("Unknown tool name: \(tool.name)")
     }
     let result = try await run(executable, arguments: arguments, output: .string(limit: .max))
-    return result.standardOutput ?? ""
+    return result.standardOutput
 }
 
 func getParam(name: String, params: CallTool.Parameters) throws -> String {
