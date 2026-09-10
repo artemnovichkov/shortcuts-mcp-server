@@ -1,4 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <path fill="currentColor" d="M5.72 1.53 1.38 5.87a1.6 1.6 0 0 0 0 2.26l4.34 4.34a1.6 1.6 0 0 0 2.26 0l4.34-4.34a1.6 1.6 0 0 0 0-2.26L7.98 1.53a1.6 1.6 0 0 0-2.26 0Zm1.2 1.06a.1.1 0 0 1 .14 0l4.35 4.34a.1.1 0 0 1 0 .14l-4.35 4.35a.1.1 0 0 1-.14 0L2.44 7.07a.1.1 0 0 1 0-.14l4.34-4.34Z"/>
-  <path fill="currentColor" d="M9.5 9.5h3.4a1.6 1.6 0 0 1 1.6 1.6v2.3a1.6 1.6 0 0 1-1.6 1.6h-2.3a1.6 1.6 0 0 1-1.6-1.6V9.5Zm1.5 1.5v2.4c0 .06.04.1.1.1h2.3a.1.1 0 0 0 .1-.1v-2.3a.1.1 0 0 0-.1-.1H11Z"/>
+  <g fill="none" stroke="currentColor" stroke-width="1.5">
+    <rect x="1.9" y="4.3" width="7.4" height="7.4" rx="2.4" transform="rotate(-45 5.6 8)"/>
+    <rect x="6.7" y="4.3" width="7.4" height="7.4" rx="2.4" transform="rotate(-45 10.4 8)"/>
+  </g>
 </svg>
