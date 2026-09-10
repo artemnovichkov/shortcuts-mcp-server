@@ -54,15 +54,17 @@ Update your MCP configuration with the following server:
 
 ### Xcode 27 agent plug-in
 
-Xcode 27 can load the server as an agent plug-in with custom tool icons and titles (via `_meta`). The plug-in lives in [`plugin/`](plugin):
+The repo root is a Claude Code style agent plug-in that Xcode 27 can import:
 
 ```
-plugin/
+.claude-plugin/
 ├── plugin.json
 └── icon.svg
 ```
 
-Add it in Xcode via **Settings → Intelligence → Plug-ins**, pointing at the `plugin` directory.
+`plugin.json` declares the MCP server plus `_meta` with a custom tool icon and titles.
+
+In Xcode: **Settings → Intelligence → Plug-ins → Add Plug-in…**, then pick the cloned repository directory.
 
 ## Usage
 

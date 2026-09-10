@@ -16,7 +16,7 @@
         "*"
       ],
       "_meta": {
-        "ideToolIconPath": "./icon.svg",
+        "ideToolIconPath": "./.claude-plugin/icon.svg",
         "ideToolIconRendersAsTemplate": true,
         "ideToolTitles": {
           "run": "Run Shortcut",
