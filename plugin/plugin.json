@@ -1,0 +1,29 @@
+{
+  "name": "shortcuts-mcp-server",
+  "description": "Run, list, and view Apple Shortcuts from Xcode's coding assistant.",
+  "version": "1.0.8",
+  "mcpServers": {
+    "shortcuts-mcp-server": {
+      "type": "stdio",
+      "command": "mise",
+      "args": [
+        "x",
+        "ubi:artemnovichkov/shortcuts-mcp-server@latest",
+        "--",
+        "shortcuts-mcp-server"
+      ],
+      "tools": [
+        "*"
+      ],
+      "_meta": {
+        "ideToolIconPath": "./icon.svg",
+        "ideToolIconRendersAsTemplate": true,
+        "ideToolTitles": {
+          "run": "Run Shortcut",
+          "list": "List Shortcuts",
+          "view": "View Shortcut"
+        }
+      }
+    }
+  }
+}

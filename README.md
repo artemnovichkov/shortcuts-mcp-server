@@ -52,6 +52,18 @@ Update your MCP configuration with the following server:
 }
 ```
 
+### Xcode 27 agent plug-in
+
+Xcode 27 can load the server as an agent plug-in with custom tool icons and titles (via `_meta`). The plug-in lives in [`plugin/`](plugin):
+
+```
+plugin/
+├── plugin.json
+└── icon.svg
+```
+
+Add it in Xcode via **Settings → Intelligence → Plug-ins**, pointing at the `plugin` directory.
+
 ## Usage
 
 Just ask LLM to run a shortcut, show a list of added shortcuts or view a shortcut in Shortcuts app. 
